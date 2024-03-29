@@ -1,2 +1,2 @@
-<h3>0x00. Pagination - A tutorial project on the very basics of pagination</h3>
+<h3>A tutorial project repository on the fundamentals of backend software development</h3>
 <p>README in progress...</p>
