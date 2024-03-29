@@ -40,6 +40,7 @@ class Server:
         index_first = self.__dataset.index(first_item)
         if end_index >= size or start_index < index_first:
             return []
-        end_index += 1
+        elif start_index > size:
+            return []
         data = self.__dataset[start_index:end_index]
         return data
