@@ -36,7 +36,7 @@ class Server:
         start_index = pagination_indices[0]
         end_index = pagination_indices[1]
         size = len(self.dataset())
-        if end_index > size:
+        if end_index >= size:
             return []
         end_index += 1
         data = self.__dataset[start_index:end_index]
