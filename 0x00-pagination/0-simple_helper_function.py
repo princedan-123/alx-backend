@@ -13,5 +13,5 @@ def index_range(page: int, page_size: int) -> typing.Tuple[int, int]:
     """
     no_entries = page * page_size
     last_index = no_entries
-    first_index = last_index - (page_size - 1)
+    first_index = last_index - page_size
     return (first_index, last_index)
