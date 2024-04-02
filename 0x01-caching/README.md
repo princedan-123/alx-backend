@@ -6,7 +6,7 @@
 
 <p>Resources</p>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Cache_replacement_policies#First_In_First_Out_%28FIFO%29">Cache replacement policies - FIFO</a><li>
+<li><a href="https://en.wikipedia.org/wiki/Cache_replacement_policies#First_In_First_Out_%28FIFO%29">Cache replacement policies - FIFO</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Cache_replacement_policies#First_In_First_Out_%28FIFO%29"> Cache replacement policies - LIFO</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Cache_replacement_policies#First_In_First_Out_%28FIFO%29"> Cache replacement policies - LRU</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Cache_replacement_policies#First_In_First_Out_%28FIFO%29"> Cache replacement policies - MRU</a></li>
@@ -14,14 +14,14 @@
 </ul>
 <p> Learning Objectives </p>
 <ul>
-<li>What a caching system is<li>
-<li>What FIFO means<li>
-<li>What LIFO means<li>
-<li>What LRU means<li>
-<li>What MRU means<li>
-<li>What LFU means<li>
-<li>What the purpose of a caching system<li>
-<li>What limits a caching system have<li>
+<li>What a caching system is</li>
+<li>What FIFO means</li>
+<li>What LIFO means</li>
+<li>What LRU means</li>
+<li>What MRU means</li>
+<li>What LFU means</li>
+<li>What the purpose of a caching system</li>
+<li>What limits a caching system have</li>
 </ul>
 <h4> Requirements</h4>
 <ul>
@@ -138,7 +138,7 @@ Must return the value in self.cache_data linked to key.
 If key is None or if the key doesn’t exist in self.cache_data, return None.</li>
 </ul>
 <p>
-Advanced Task
+Advanced Task:
 Please ensure you concentrate on the mandatory task before attempting the advanced task
 <ul>
 <li>Create a class LFUCache that inherits from BaseCaching and is a caching system:
