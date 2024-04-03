@@ -14,7 +14,7 @@ class MRUCache(BaseCaching):
         """
             A methods that adds an item to the cache.
             args: key - the key of the item to be added.
-                  item - the item to be addes.
+                  item - the item to be added.
         """
         if key is not None and item is not None:
             self.cache_data[key] = item
@@ -22,7 +22,7 @@ class MRUCache(BaseCaching):
             delete_key = self.most_recent_key
             del self.cache_data[delete_key]
             print(f'DISCARD: {delete_key}')
-            self.most_recent_key = key
+        self.most_recent_key = key
 
     def get(self, key):
         """
