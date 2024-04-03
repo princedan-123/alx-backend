@@ -18,16 +18,13 @@ class LRUCache(BaseCaching):
         """
         if key is not None and item is not None:
             self.cache_data[key] = item
+            if key in self.used_keys:
+                self.used_keys.remove(key)
+            self.used_keys.append(key)
         if len(self.cache_data.keys()) > BaseCaching.MAX_ITEMS:
-            delete_key = None
-            for key in self.cache_data.keys():
-                if key not in self.used_keys:
-                    delete_key = key
-                    break
-            if delete_key is None:
-                delete_key = self.used_keys.pop(0)
+            delete_key = self.used_keys.pop(0)
             del self.cache_data[delete_key]
-            print(f'DISCARD: {key}')
+            print(f'DISCARD: {delete_key}')
 
     def get(self, key):
         """
@@ -35,5 +32,7 @@ class LRUCache(BaseCaching):
             args: key - the key of the item to be retrieved.
         """
         if key is not None and key in self.cache_data.keys():
+            if key in self.used_keys:
+                self.used_keys.remove(key)
             self.used_keys.append(key)
         return self.cache_data.get(key, None)
