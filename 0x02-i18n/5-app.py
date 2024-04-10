@@ -24,7 +24,7 @@ def get_user() -> typing.Union[typing.Dict, None]:
     if user_id is not None:
         return users.get(user_id)
     return user_id
-
+@app.before_request
 def before_request():
     """A function executed before every request handling."""
     user = get_user()
