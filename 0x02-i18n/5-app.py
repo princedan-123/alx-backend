@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """A simple flask app."""
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, g
 from flask_babel import Babel
 import typing
 
@@ -15,7 +15,7 @@ users = {
     4: {"name": "Teletubby", "locale": None, "timezone": "Europe/London"},
 }
 
-def get_user() -> typing.Union[dict | None]:
+def get_user() -> typing.Union[typing.Dict, None]:
     """
         A functionrthat returns a user dictionary or None from
         the users dataset.
@@ -54,7 +54,7 @@ def get_locale():
 @app.route('/')
 def home():
     """A route to the homepage of the application."""
-    return render_template('4-index.html')
+    return render_template('5-index.html', g=g)
 
 
 if __name__ == '__main__':
