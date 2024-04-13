@@ -15,6 +15,7 @@ users = {
     4: {"name": "Teletubby", "locale": None, "timezone": "Europe/London"},
 }
 
+
 def get_user() -> typing.Union[typing.Dict, None]:
     """
         A functionrthat returns a user dictionary or None from
@@ -24,11 +25,14 @@ def get_user() -> typing.Union[typing.Dict, None]:
     if user_id is not None:
         return users.get(int(user_id))
     return user_id
+
+
 @app.before_request
 def before_request():
     """A function executed before every request handling."""
     user = get_user()
     g.user = user
+
 
 class Config:
     """Default configuration setup for the app"""
