@@ -22,14 +22,13 @@ def get_user() -> typing.Union[typing.Dict, None]:
     """
     user_id = request.args.get('login_as', None)
     if user_id is not None:
-        return users.get(user_id)
+        return users.get(int(user_id))
     return user_id
 @app.before_request
 def before_request():
     """A function executed before every request handling."""
     user = get_user()
-    if user is not None:
-        g.user = user
+    g.user = user
 
 class Config:
     """Default configuration setup for the app"""
