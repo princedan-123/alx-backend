@@ -52,7 +52,7 @@ def get_locale():
     prefered_locale = g.user.get('locale', None)
     if locale is not None and locale in languages:
         return locale
-    if prefered_locale and prefered_locale in app.config['languages']:
+    if prefered_locale and prefered_locale in app.config['LANGUAGES']:
         return prefered_locale
     return request.accept_languages.best_match(app.config.get('LANGUAGES'))
 
