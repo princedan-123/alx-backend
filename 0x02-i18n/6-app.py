@@ -49,11 +49,12 @@ def get_locale():
     """A selector function that determines the users locale per request."""
     locale = request.args.get('locale', None)
     languages = app.config.get('LANGUAGES')
-    prefered_locale = g.user.get('locale', None)
     if locale is not None and locale in languages:
         return locale
-    if prefered_locale and prefered_locale in app.config['LANGUAGES']:
-        return prefered_locale
+    if g.user:
+        prefered_locale = g.user.get('locale', None)
+        if prefered_locale and prefered_locale in app.config['LANGUAGES']:
+            return prefered_locale
     return request.accept_languages.best_match(app.config.get('LANGUAGES'))
 
 
