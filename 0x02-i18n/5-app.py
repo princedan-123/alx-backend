@@ -4,8 +4,16 @@ from flask import Flask, render_template, request, g
 from flask_babel import Babel
 import typing
 
+def get_locale():
+    """A selector function that determines the users locale per request."""
+    locale = request.args.get('locale', None)
+    languages = app.config.get('LANGUAGES')
+    if locale is not None and locale in languages:
+        return locale
+    return request.accept_languages.best_match(app.config.get('LANGUAGES'))
+
 app = Flask(__name__)
-babel = Babel(app)
+babel = Babel(app, locale_selector=get_locale)
 
 
 users = {
@@ -33,7 +41,6 @@ def before_request():
     user = get_user()
     g.user = user
 
-
 class Config:
     """Default configuration setup for the app"""
     LANGUAGES = ["en", "fr"]
@@ -42,16 +49,6 @@ class Config:
 
 
 app.config.from_object(Config)
-
-
-@babel.localeselector
-def get_locale():
-    """A selector function that determines the users locale per request."""
-    locale = request.args.get('locale', None)
-    languages = app.config.get('LANGUAGES')
-    if locale is not None and locale in languages:
-        return locale
-    return request.accept_languages.best_match(app.config.get('LANGUAGES'))
 
 
 @app.route('/')
